@@ -26,6 +26,8 @@ b3.grid(row=3, column=2, sticky='ew')
 
 
 ROW_IDS = []
+
+
 def load_blog_list():
     listbox.delete(0, END)
     blog_list = get_blog_list()
@@ -42,6 +44,7 @@ def get_blog(event):
     entry.insert(0, blog["subject"])
     text.delete(1.0, END)
     text.insert(1.0, blog["content"])
+
 
 listbox.bind('<<ListboxSelect>>', get_blog)
 
@@ -62,6 +65,7 @@ def btn_add(event):
     add_blog(subject, content)
     refresh()
 
+
 b1.bind('<Button-1>', btn_add)
 
 
@@ -80,6 +84,7 @@ def btn_modify(event):
     modify_blog(_id, subject, content)
     refresh()
 
+
 b2.bind('<Button-1>', btn_modify)
 
 
@@ -92,6 +97,7 @@ def btn_remove(event):
     if askyesno("확인", "정말로 삭제하시겠습니까?"):
         remove_blog(_id)
         refresh()
+
 
 b3.bind('<Button-1>', btn_remove)
 
